@@ -1,0 +1,22 @@
+{
+  "name": "@robotico/outbox",
+  "version": "0.1.0",
+  "description": "Robotico Outbox — transactional outbox for reliable publishing in TypeScript.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist/**/*"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:1})\""
+  },
+  "keywords": ["robotico", "outbox", "transactional", "reliable-publish"],
+  "author": "Robotico",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robotico-dev/robotico-outbox-typescript"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}
