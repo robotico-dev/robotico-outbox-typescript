@@ -1,22 +1,62 @@
 {
-  "name": "@robotico/outbox",
-  "version": "0.1.0",
-  "description": "Robotico Outbox — transactional outbox for reliable publishing in TypeScript.",
+  "name": "@robotico-dev/outbox",
+  "version": "1.0.0",
+  "description": "Robotico Outbox — validated append, in-memory store, resilient dispatch.",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
   "files": ["dist/**/*"],
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "tsc",
-    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:1})\""
+    "clean": "node --input-type=module -e \"import fs from 'fs'; fs.rmSync('dist',{recursive:true,force:true});\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --max-warnings 0",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "docs": "typedoc --out docs src/index.ts --exclude \"**/*.test.ts\" --exclude \"**/*.fixture.ts\" --exclude \"**/exports/**\"",
+    "verify": "npm run lint && npm run format:check && npm run build && npm run test:coverage && npm run docs"
   },
-  "keywords": ["robotico", "outbox", "transactional", "reliable-publish"],
+  "keywords": ["robotico", "outbox", "transactional", "messaging"],
   "author": "Robotico",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/robotico-dev/robotico-outbox-typescript"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@robotico-dev/resilience": "^1.0.1",
+    "@robotico-dev/result": "^1.0.1",
+    "@robotico-dev/validation": "^1.0.1"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "@eslint/js": "^10.0.1",
+    "@robotico-dev/resilience": "^1.0.1",
+    "@robotico-dev/result": "^1.0.1",
+    "@robotico-dev/validation": "^1.0.1",
+    "@vitest/coverage-v8": "^4.1.2",
+    "eslint": "^10.0.0",
+    "prettier": "^3.4.0",
+    "typedoc": "^0.28.18",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "8.57.3-alpha.3",
+    "vitest": "^4.1.2"
   }
 }
