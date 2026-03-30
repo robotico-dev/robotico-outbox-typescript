@@ -42,13 +42,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@robotico-dev/resilience": "^1.0.1",
+    "@robotico-dev/resilience": "^1.0.3",
     "@robotico-dev/result": "^1.0.1",
     "@robotico-dev/validation": "^1.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@robotico-dev/resilience": "^1.0.1",
+    "@robotico-dev/resilience": "^1.0.3",
     "@robotico-dev/result": "^1.0.1",
     "@robotico-dev/validation": "^1.0.1",
     "@vitest/coverage-v8": "^4.1.2",
