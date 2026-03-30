@@ -12,6 +12,7 @@ export * from "./exports/i-outbox-transport.js";
 export * from "./exports/dispatch-outbox-batch-hooks-option.js";
 export * from "./exports/dispatch-outbox-batch-options.js";
 export * from "./exports/in-memory-outbox-store.js";
+export * from "./exports/record-in-memory-outbox-store.js";
 export * from "./exports/outbox-record-to-entry.js";
 export * from "./exports/create-outbox-entry-rules.js";
 export * from "./exports/append-outbox-entry-validated.js";
