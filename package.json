@@ -1,6 +1,6 @@
 {
   "name": "@robotico-dev/outbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Robotico Outbox — validated append, in-memory store, resilient dispatch.",
   "type": "module",
   "main": "dist/index.js",
